@@ -22,9 +22,9 @@
 
 	async function getUser(){
 		const res = await fetch(`https://api.mymcuu.id/username/${name}`);
-		const json = res.json();
+		const json = await res.json();
 		if(res.ok) {
-			if(json.error) {
+			if(json.error !== undefined) {
 				throw new Error(json.error);
 			} else {
 				stage = 1;
