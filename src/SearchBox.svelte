@@ -4,17 +4,17 @@
 	const dispatch = createEventDispatcher();
     export let username = "";
     
-    function handleKeyDown(event){
-        if(event.code === "Enter"){
-            dispatch('submit', {username})
-        }
+    function handleSubmit(event){
+        event.preventDefault();
+        dispatch('submit', {username})
     }
 </script>
-<div class="mx-auto relative w-3/4 md:w-1/3 ">
-    <svg class="absolute h-full" style="left: 16px" xmlns="http://www.w3.org/2000/svg" width="20" height="220" viewBox="0 0 36.326 36.326"><path d="M15.75,0a15.75,15.75,0,0,0,0,31.5,15.567,15.567,0,0,0,7.47-1.845,4.5,4.5,0,0,0,.585.585l4.5,4.5a4.59,4.59,0,1,0,6.48-6.48l-4.5-4.5a4.5,4.5,0,0,0-.72-.585,15.538,15.538,0,0,0,1.98-7.47A15.767,15.767,0,0,0,15.8-.045Zm0,4.5A11.2,11.2,0,0,1,27,15.75a11.284,11.284,0,0,1-2.97,7.74l-.135.135a4.5,4.5,0,0,0-.585.585,11.26,11.26,0,0,1-7.6,2.835,11.25,11.25,0,0,1,0-22.5Z" transform="translate(0 0.045)" fill="#707070"/></svg>
-    <input placeholder="Username or UUID" type="text" bind:value={username} class="p-4 bg-white rounded-full border-gray-500 border pl-10 w-full" on:keydown={handleKeyDown}/>
-</div>
-
+<form on:submit|preventDefault="{handleSubmit}">
+    <div class="mx-auto relative w-3/4 md:w-1/3 ">
+        <svg class="absolute h-full" style="left: 16px" xmlns="http://www.w3.org/2000/svg" width="20" height="220" viewBox="0 0 36.326 36.326"><path d="M15.75,0a15.75,15.75,0,0,0,0,31.5,15.567,15.567,0,0,0,7.47-1.845,4.5,4.5,0,0,0,.585.585l4.5,4.5a4.59,4.59,0,1,0,6.48-6.48l-4.5-4.5a4.5,4.5,0,0,0-.72-.585,15.538,15.538,0,0,0,1.98-7.47A15.767,15.767,0,0,0,15.8-.045Zm0,4.5A11.2,11.2,0,0,1,27,15.75a11.284,11.284,0,0,1-2.97,7.74l-.135.135a4.5,4.5,0,0,0-.585.585,11.26,11.26,0,0,1-7.6,2.835,11.25,11.25,0,0,1,0-22.5Z" transform="translate(0 0.045)" fill="#707070"/></svg>
+        <input placeholder="Username or UUID" type="search" bind:value={username} class="p-4 bg-white rounded-full border-gray-500 border pl-10 w-full"/>
+    </div>
+</form>
 <style>
 input {
     box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);

@@ -90,7 +90,7 @@
 					<img src="{player.avatar}" alt="{player.username}'s avatar" class="h-full w-full"/>
 				</div>
 				<div class="px-2 flex flex-col flex-grow items-center md:items-stretch">
-					<div  on:click={copyUsername} class="username flex flex-col cursor-pointer items-center md:flex-row" data-username="{player.username}">
+					<div on:click={copyUsername} class="username flex flex-col cursor-pointer items-center md:flex-row" data-username="{player.username}">
 						<h3 class="text-4xl  pointer-events-none">{player.username}</h3>
 						<small class="uppercase text-sm select-none pointer-events-none"> Click to copy</small>
 					</div>
