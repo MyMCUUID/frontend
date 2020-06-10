@@ -24,8 +24,12 @@
 		const res = await fetch(`https://api.mymcuu.id/username/${name}`);
 		const json = res.json();
 		if(res.ok) {
-			stage = 1;
-			return json;
+			if(json.error) {
+				throw new Error(json.error);
+			} else {
+				stage = 1;
+				return json;
+			}
 		} else {
 			throw new Error(json);
 		}
